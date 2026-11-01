@@ -131,6 +131,21 @@
 
   /* activities */
   .acts .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:start}
+  .slides{position:relative;width:100%;max-width:880px;margin:0 auto;aspect-ratio:16/9;background:var(--green-dk);border-radius:var(--r);overflow:hidden}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+  .slides img.on{opacity:1;visibility:visible}
+  .slides button{position:absolute;border:0;cursor:pointer;font-family:"Anuphan"}
+  .slides .nav,.slides .toggle{width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:26px;line-height:1;display:grid;place-items:center}
+  .slides .nav:hover,.slides .toggle:hover{background:rgba(0,0,0,.8)}
+  .slides .prev{left:12px;top:calc(50% - 24px)}
+  .slides .next{right:12px;top:calc(50% - 24px)}
+  .slides .toggle{right:12px;top:12px;font-size:16px}
+  .slides .dots{position:absolute;left:0;right:0;bottom:6px;display:flex;justify-content:center;flex-wrap:wrap}
+  .slides .dots button{position:static;width:28px;height:28px;background:none;display:grid;place-items:center}
+  .slides .dots button::before{content:"";width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+  .slides .dots button.on::before{background:#F2C766}
+  .slides button:focus-visible{outline:3px solid #F2C766;outline-offset:2px}
+  @media(max-width:640px){.slides{aspect-ratio:4/3}}
   .vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
   .vid{background:#000;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16}
   .vid iframe{width:100%;height:100%;border:0;display:block}
@@ -281,6 +296,7 @@
       <p>อัปเดตล่าสุดจากเพจ Facebook เคหะคลินิกเวชกรรม</p>
     </div>
     <div class="grid">
+      <div class="slides" id="slides" role="group" aria-label="สไลด์โชว์ภาพกิจกรรม" hidden></div>
       <div class="vids" id="vids"></div>
       <div>
         <div class="fbbox" id="fbbox"></div>
@@ -290,6 +306,73 @@
   </div>
 </section>
 <script>
+/* ===== สไลด์โชว์ภาพกิจกรรม =====
+   วิธีเพิ่ม: บันทึกภาพในโฟลเดอร์ activities แล้วเพิ่มชื่อไฟล์และคำอธิบายด้านล่าง
+   ชื่อไฟล์ใช้ภาษาอังกฤษหรือตัวเลขเท่านั้น เช่น 01.jpg
+   ถ้าไม่ใส่ภาพ สไลด์โชว์จะไม่แสดง */
+const ACTIVITY_PHOTOS = [
+  { src: "activities/01.jpg", alt: "หน่วยบริการตรวจสุขภาพเชิงรุกที่วัดประชาบำรุง" },
+  { src: "activities/02.jpg", alt: "หน่วยบริการตรวจสุขภาพเชิงรุกที่ชุมชนมุ่งพัฒนา" },
+  { src: "activities/03.jpg", alt: "ทีมเจ้าหน้าที่ประจำจุดรับบัตรประชาชนในกิจกรรมตรวจสุขภาพ" },
+  { src: "activities/04.jpg", alt: "เต็นท์หน่วยบริการตรวจสุขภาพกลางแจ้ง" },
+  { src: "activities/05.jpg", alt: "เจ้าหน้าที่ประจำโต๊ะบริการในกิจกรรมตรวจสุขภาพ" },
+  { src: "activities/06.jpg", alt: "เจ้าหน้าที่พร้อมกระเช้าของขวัญภายในคลินิก" },
+  { src: "activities/07.jpg", alt: "คณะจากโรงพยาบาล PMG เยี่ยมเคหะคลินิกเวชกรรม" },
+  { src: "activities/08.jpg", alt: "คณะผู้มาเยี่ยมถ่ายภาพร่วมกันภายในคลินิก" },
+  { src: "activities/09.jpg", alt: "ทีมบุคลากรถ่ายภาพร่วมกันภายในคลินิก" },
+  { src: "activities/10.jpg", alt: "กลุ่มผู้มาเยือนถ่ายภาพร่วมกันภายในคลินิก" },
+];
+
+(function(){
+  var root=document.getElementById('slides');
+  var n=ACTIVITY_PHOTOS.length;
+  if(!n) return;
+  root.hidden=false;
+  var imgs=[],dots=[],cur=0,timer=null;
+  var paused=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar=document.createElement('div');bar.className='dots';
+  function button(cls,label,text,fn){
+    var b=document.createElement('button');
+    b.type='button';b.className=cls;b.textContent=text;b.setAttribute('aria-label',label);
+    b.addEventListener('click',fn);
+    return b;
+  }
+  function show(i){
+    cur=(i+n)%n;
+    imgs.forEach(function(m,k){m.classList.toggle('on',k===cur);});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===cur);});
+  }
+  function stop(){clearInterval(timer);timer=null;}
+  function start(){stop();if(!paused&&n>1) timer=setInterval(function(){if(!document.hidden) show(cur+1);},5000);}
+  function go(i){show(i);start();}
+  ACTIVITY_PHOTOS.forEach(function(p,i){
+    var m=document.createElement('img');
+    m.src=p.src;m.alt=p.alt;m.loading=i?'lazy':'eager';
+    imgs.push(m);root.appendChild(m);
+    var d=button('','ภาพที่ '+(i+1)+' จาก '+n,'',function(){go(i);});
+    dots.push(d);bar.appendChild(d);
+  });
+  if(n>1){
+    root.appendChild(button('nav prev','ภาพก่อนหน้า','‹',function(){go(cur-1);}));
+    root.appendChild(button('nav next','ภาพถัดไป','›',function(){go(cur+1);}));
+    var tg=button('toggle','','',function(){paused=!paused;label();start();});
+    function label(){tg.textContent=paused?'▶':'❚❚';tg.setAttribute('aria-label',paused?'เล่นสไลด์โชว์':'หยุดสไลด์โชว์');}
+    label();root.appendChild(tg);root.appendChild(bar);
+    root.addEventListener('mouseenter',stop);
+    root.addEventListener('mouseleave',start);
+    root.addEventListener('focusin',stop);
+    root.addEventListener('focusout',start);
+    var sx=null;
+    root.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    root.addEventListener('touchend',function(e){
+      if(sx===null) return;
+      var dx=e.changedTouches[0].clientX-sx;sx=null;
+      if(Math.abs(dx)>40) go(cur+(dx<0?1:-1));
+    });
+  }
+  show(0);start();
+})();
+
 /* ===== วิดีโอจาก Facebook =====
    วิธีเพิ่ม: เปิดวิดีโอในเบราว์เซอร์ แล้วคัดลอกลิงก์เต็มจากช่อง URL (ห้ามใช้ลิงก์ facebook.com/share/r/... เพราะฝังไม่ได้)
    แล้ววางลิงก์ในเครื่องหมาย " " คั่นแต่ละลิงก์ด้วยเครื่องหมายจุลภาค ,
