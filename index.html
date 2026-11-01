@@ -130,17 +130,16 @@
 
 
   /* activities */
-  .acts .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
-  .vids{display:grid;gap:18px}
-  .vid{background:#000;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9}
+  .acts .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;align-items:start}
+  .vids{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .vid{background:#000;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16}
   .vid iframe{width:100%;height:100%;border:0;display:block}
   .vids:empty{display:none}
   .fbbox{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;justify-content:center;overflow:hidden}
   .fbbox iframe{border:0;max-width:100%}
   .acts .more{margin-top:18px}
-  .acts.no-vids .grid{grid-template-columns:1fr;justify-items:center}
-  .acts.no-vids .grid > div:last-child{width:100%;max-width:526px;text-align:center}
-  @media(max-width:860px){.acts .grid{grid-template-columns:1fr}}
+  .acts .grid > div:last-child{width:100%;max-width:526px;margin:0 auto;text-align:center}
+  @media(max-width:860px){.vids{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
   /* contact */
   .contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
@@ -292,37 +291,38 @@
 </section>
 <script>
 /* ===== วิดีโอจาก Facebook =====
-   วิธีเพิ่ม: เปิดวิดีโอในเพจ > กด ... หรือ แชร์ > คัดลอกลิงก์
+   วิธีเพิ่ม: เปิดวิดีโอในเบราว์เซอร์ แล้วคัดลอกลิงก์เต็มจากช่อง URL (ห้ามใช้ลิงก์ facebook.com/share/r/... เพราะฝังไม่ได้)
    แล้ววางลิงก์ในเครื่องหมาย " " คั่นแต่ละลิงก์ด้วยเครื่องหมายจุลภาค ,
    ตัวอย่าง:
    const FB_VIDEOS = [
      "https://www.facebook.com/khehaclinic/videos/1234567890/",
      "https://www.facebook.com/reel/9876543210",
-          "https://www.facebook.com/share/r/19eDMsueuX/",
-          "https://www.facebook.com/share/r/14yftNr4fnX/",
-          "https://www.facebook.com/share/r/19ceBiLe9k/",
-          "https://www.facebook.com/share/r/19kh3siHyr/",
-          "https://www.facebook.com/share/r/1DZYShEbd8/",
-          "https://www.facebook.com/share/r/1DiciRNEEm/.,
-          "https://www.facebook.com/share/r/1Fvq9ezsyy/",
    ];
-   ถ้าไม่ใส่ลิงก์ จะแสดงเฉพาะโพสต์ล่าสุดของเพจ */
+   ถ้าไม่ใส่ลิงก์ จะแสดงเฉพาะการ์ดเพจ */
 const FB_VIDEOS = [
+  "https://www.facebook.com/reel/1151564167735038",
+  "https://www.facebook.com/reel/2578388429345622",
+  "https://www.facebook.com/reel/932945599788444",
+  "https://www.facebook.com/reel/2314001982680874",
+  "https://www.facebook.com/reel/1058662743645018",
+  "https://www.facebook.com/reel/1513423017577629",
+  "https://www.facebook.com/reel/2495685000908156",
 ];
 const FB_PAGE = "https://www.facebook.com/khehaclinic";
 
 (function(){
   var v=document.getElementById('vids');
+  var cols=window.innerWidth<=860?2:3;
+  var vw=Math.floor((v.parentNode.clientWidth-18*(cols-1))/cols);
   FB_VIDEOS.forEach(function(u){
     var d=document.createElement('div');d.className='vid';
-    d.innerHTML='<iframe src="https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(u)+'&show_text=false&width=734" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy" title="วิดีโอกิจกรรม"></iframe>';
+    d.innerHTML='<iframe src="https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(u)+'&show_text=false&width='+vw+'" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy" title="วิดีโอกิจกรรม"></iframe>';
     v.appendChild(d);
   });
-  if(!FB_VIDEOS.length) document.getElementById('activities').classList.add('no-vids');
   var box=document.getElementById('fbbox');
   function draw(){
     var w=Math.min(500,Math.max(180,Math.floor(box.parentNode.clientWidth-26)));
-    box.innerHTML='<iframe src="https://www.facebook.com/plugins/page.php?href='+encodeURIComponent(FB_PAGE)+'&tabs=timeline&width='+w+'&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" width="'+w+'" height="640" allow="encrypted-media; clipboard-write; web-share" loading="lazy" title="โพสต์ล่าสุดจาก Facebook"></iframe>';
+    box.innerHTML='<iframe src="https://www.facebook.com/plugins/page.php?href='+encodeURIComponent(FB_PAGE)+'&tabs=&width='+w+'&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" width="'+w+'" height="214" allow="encrypted-media; clipboard-write; web-share" loading="lazy" title="โพสต์ล่าสุดจาก Facebook"></iframe>';
   }
   draw();var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,400);});
 })();
