@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เคหะคลินิกเวชกรรม | คลินิกบัตรทอง บางขุนเทียน</title>
+<meta name="description" content="เคหะคลินิกเวชกรรม คลินิกบัตรทอง บางขุนเทียน กทม. ตรวจรักษาโรคทั่วไป ส่งเสริมสุขภาพและป้องกันโรค จันทร์–ศุกร์ 8.00–18.00 น. เสาร์–อาทิตย์ 8.00–11.00 น. โทร 02 005 0062">
+<meta property="og:title" content="เคหะคลินิกเวชกรรม | คลินิกบัตรทอง บางขุนเทียน">
+<meta property="og:description" content="ตรวจรักษาโรคทั่วไป ส่งเสริมสุขภาพและป้องกันโรค หน่วยบริการ สปสช. โทร 02 005 0062">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@500;600;700&family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
+<style id="kh-style">
+  :root{
+    --green:#0E5E52; --green-dk:#0A453C; --green-lt:#E4F1EC;
+    --gold:#C8962B; --gold-lt:#FBF1DC;
+    --ink:#1D2B28; --muted:#5A6B67; --line:#DCE6E2;
+    --paper:#FAF8F3; --white:#FFFFFF;
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"IBM Plex Sans Thai Looped",sans-serif;font-size:18px;line-height:1.7;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Anuphan",sans-serif;line-height:1.3;color:var(--green-dk)}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"Anuphan";font-weight:600;font-size:15px;letter-spacing:.02em;color:var(--gold);text-transform:uppercase}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold)}
+  section{padding:72px 0}
+  .sec-head{max-width:640px;margin-bottom:36px}
+  .sec-head h2{font-size:clamp(28px,4vw,38px);margin-top:8px}
+  .sec-head p{color:var(--muted);margin-top:10px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font-family:"Anuphan";font-weight:600;font-size:18px;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:22px;height:22px;flex:none}
+  .btn-gold{background:var(--gold);color:#fff;box-shadow:0 8px 22px -10px rgba(200,150,43,.9)}
+  .btn-gold:hover{background:#B5851F}
+  .btn-line{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+  .btn-line:hover{background:rgba(255,255,255,.1)}
+  .btn-green{background:var(--green);color:#fff}
+  .btn-green:hover{background:var(--green-dk)}
+
+  /* header */
+  .top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{width:46px;height:46px;border-radius:14px;background:var(--green);display:grid;place-items:center;flex:none}
+  .mark svg{width:26px;height:26px}
+  .logo{height:52px;width:auto;max-width:160px;object-fit:contain;flex:none;display:block}
+  .brand b{display:block;font-family:"Anuphan";font-size:20px;color:var(--green-dk);line-height:1.2}
+  .brand small{display:block;font-size:14px;color:var(--muted);line-height:1.2}
+  .top nav{display:flex;gap:26px;font-family:"Anuphan";font-weight:500;font-size:16px}
+  .top nav a{text-decoration:none;color:var(--muted)}
+  .top nav a:hover{color:var(--green)}
+  .top .btn{min-height:46px;padding:0 20px;font-size:16px}
+  @media(max-width:860px){.top nav{display:none}}
+  @media(max-width:480px){.top .btn span{display:none}.top .btn{padding:0 14px}}
+
+  /* hero */
+  .hero{background:var(--green);color:#fff;position:relative;overflow:hidden;padding:80px 0 92px}
+  .hero::after{content:"";position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;border:80px solid rgba(255,255,255,.05)}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:48px;align-items:center;position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:10px;background:var(--gold-lt);color:#7A5A12;font-family:"Anuphan";font-weight:600;font-size:16px;padding:8px 16px 8px 10px;border-radius:999px}
+  .badge i{width:26px;height:26px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-style:normal;color:#fff;font-size:14px}
+  .hero h1{color:#fff;font-size:clamp(36px,5.6vw,60px);margin:22px 0 18px;font-weight:700}
+  .hero .clinic-name{font-family:"Anuphan";font-weight:600;font-size:clamp(22px,2.6vw,28px);color:#fff;margin-top:20px;line-height:1.3}
+  .hero .clinic-name span{font-weight:500;color:rgba(255,255,255,.7)}
+  .hero .clinic-name + h1{margin-top:6px}
+  .hero h1 em{font-style:normal;color:#F2C766}
+  .hero p.lead{font-size:20px;color:rgba(255,255,255,.85);max-width:560px}
+  .hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+  .hours{background:var(--white);color:var(--ink);border-radius:24px;padding:30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+  .hours h3{font-size:18px;color:var(--muted);font-weight:600}
+  .hours .big{font-family:"Anuphan";font-weight:700;font-size:40px;color:var(--green-dk);line-height:1.15;margin:6px 0 2px}
+  .hours .days{font-family:"Anuphan";font-weight:600;color:var(--gold);font-size:20px}
+  .hours hr{border:0;border-top:1px dashed var(--line);margin:22px 0}
+  .hours .row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;font-size:17px}
+  .hours .slot{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0}
+  .hours .slot span{font-size:17px;color:var(--muted)}
+  .hours .slot b{font-family:"Anuphan";font-weight:700;font-size:24px;color:var(--green-dk);white-space:nowrap}
+  .hours .row a{font-family:"Anuphan";font-weight:600;color:var(--green);text-decoration:none;font-size:19px}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero{padding:56px 0 64px}}
+
+  /* quick links */
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px;text-decoration:none;display:flex;gap:16px;align-items:flex-start;transition:border-color .15s,transform .15s,box-shadow .15s}
+  a.card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 16px 30px -20px rgba(14,94,82,.6)}
+  .ico{width:52px;height:52px;border-radius:14px;background:var(--green-lt);display:grid;place-items:center;flex:none}
+  .ico svg{width:26px;height:26px;stroke:var(--green)}
+  .card h3{font-size:20px}
+  .card p{font-size:16px;color:var(--muted);line-height:1.55;margin-top:2px}
+  .card .go{font-family:"Anuphan";font-weight:600;font-size:15px;color:var(--gold);margin-top:8px;display:inline-block}
+  .quick{background:var(--green-lt);border-bottom:1px solid var(--line);padding:14px 0}
+  .quick .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .quick .card{padding:12px 16px;align-items:center;gap:12px;border-radius:14px}
+  .quick .card .ico{width:44px;height:44px;border-radius:12px}
+  .quick .card h3{font-size:18px}
+  .quick .card .go{margin-top:0;font-size:14px}
+  @media(max-width:640px){
+    .quick{padding:10px 0}
+    .quick .wrap{padding:0 12px}
+    .quick .grid{gap:8px}
+    .quick .card{flex-direction:column;text-align:center;gap:6px;padding:12px 6px}
+    .quick .card h3{font-size:15px;line-height:1.3}
+    .quick .card .go{display:none}
+  }
+
+  /* services */
+  .svc .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .svc .card{flex-direction:column}
+  .svc .free{background:var(--green-dk);border-color:var(--green-dk)}
+  .svc .free h3{color:#fff}.svc .free p{color:rgba(255,255,255,.8)}
+  .svc .free .ico{background:rgba(255,255,255,.12)}.svc .free .ico svg{stroke:#F2C766}
+  @media(max-width:860px){.svc .grid{grid-template-columns:1fr}}
+
+  /* steps */
+  .steps{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .steps ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  .steps li{counter-increment:s;padding:26px 22px;border-radius:var(--r);background:var(--paper);position:relative}
+  .steps li::before{content:counter(s);font-family:"Anuphan";font-weight:700;font-size:20px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;margin-bottom:14px}
+  .steps li h3{font-size:19px}
+  .steps li p{font-size:16px;color:var(--muted);line-height:1.55;margin-top:4px}
+  .steps li a{color:var(--green);font-weight:600}
+  .note{margin-top:26px;background:var(--gold-lt);border-left:4px solid var(--gold);border-radius:10px;padding:16px 20px;font-size:16px;color:#5E4710}
+  @media(max-width:860px){.steps ol{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps ol{grid-template-columns:1fr}}
+
+
+  /* activities */
+  .acts .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
+  .vids{display:grid;gap:18px}
+  .vid{background:#000;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9}
+  .vid iframe{width:100%;height:100%;border:0;display:block}
+  .vids:empty{display:none}
+  .fbbox{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;justify-content:center;overflow:hidden}
+  .fbbox iframe{border:0;max-width:100%}
+  .acts .more{margin-top:18px}
+  .acts.no-vids .grid{grid-template-columns:1fr;justify-items:center}
+  .acts.no-vids .grid > div:last-child{width:100%;max-width:526px;text-align:center}
+  @media(max-width:860px){.acts .grid{grid-template-columns:1fr}}
+
+  /* contact */
+  .contact .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:22px}
+  .clist{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:10px 26px}
+  .citem{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .citem:last-child{border-bottom:0}
+  .citem .ico{width:46px;height:46px}
+  .citem small{display:block;font-size:14px;color:var(--muted)}
+  .citem b{font-family:"Anuphan";font-weight:600;font-size:19px;color:var(--ink)}
+  .citem a{text-decoration:none}
+  .citem a:hover b{color:var(--green)}
+  .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:360px;background:var(--green-lt);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:16px;padding:20px}
+  .map{padding:0;display:block;position:relative}
+  .map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+  .map .open{position:absolute;left:14px;bottom:14px;min-height:46px;font-size:16px;padding:0 18px}
+  @media(max-width:860px){.contact .grid{grid-template-columns:1fr}}
+
+  /* footer */
+  footer{background:var(--green-dk);color:rgba(255,255,255,.75);padding:34px 0;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+  footer a{color:#F2C766;text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top" data-embed="header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img class="logo" src="logo.png" alt="โลโก้เคหะคลินิกเวชกรรม" onerror="this.style.display='none'">
+      <span><b>เคหะคลินิกเวชกรรม</b><small>“สุขภาพเป็นหนึ่ง เข้าถึงประชาชน”</small></span>
+    </a>
+    <nav>
+      <a href="#services">บริการ</a>
+      <a href="#how">ขั้นตอนรับบริการ</a>
+      <a href="#activities">กิจกรรม</a>
+      <a href="#contact">ติดต่อเรา</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== QUICK LINKS ===== -->
+<nav class="quick" aria-label="เมนูด่วน" data-embed="quick">
+  <div class="wrap grid">
+    <a class="card" href="Health-Report/web/index.html" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg></span>
+      <span><h3>ผลตรวจสุขภาพ</h3><span class="go">คลิก →</span></span>
+    </a>
+    <a class="card" href="https://srmcitizen.nhso.go.th/" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <span><h3>ตรวจสอบสิทธิ</h3><span class="go">คลิก →</span></span>
+    </a>
+    <a class="card" href="https://www.facebook.com/khehaclinic" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+      <span><h3>ติดตามข่าวสาร</h3><span class="go">คลิก →</span></span>
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top" data-embed="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge"><i>✓</i>คลินิกบัตรทอง</span>
+      <p class="clinic-name">เคหะคลินิกเวชกรรม <span>(Kheha clinic)</span></p>
+      <h1>ตรวจรักษาโรคทั่วไป<br><em>ส่งเสริมสุขภาพและป้องกันโรค</em></h1>
+      <p class="lead">หน่วยบริการในระบบหลักประกันสุขภาพแห่งชาติ (สปสช.) สำหรับประชาชนที่ลงทะเบียนกับเคหะคลินิกเวชกรรม</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="tel:020050062" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          02 005 0062
+        </a>
+        <a class="btn btn-line" href="https://lin.ee/ulx3DYx" target="_blank" rel="noopener">LINE @click888</a>
+      </div>
+    </div>
+    <aside class="hours">
+      <h3>เวลาทำการ</h3>
+      <div class="slot"><span>จันทร์ – ศุกร์</span><b>8.00 – 18.00 น.</b></div>
+      <div class="slot"><span>เสาร์ – อาทิตย์</span><b>8.00 – 11.00 น.</b></div>
+      <hr>
+      <div class="row"><span>โทรศัพท์</span><a href="tel:020050062" target="_blank" rel="noopener">02 005 0062</a></div>
+      <div class="row"><span>มือถือ</span><a href="tel:0652535253" target="_blank" rel="noopener">06 5253 5253</a></div>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ===== SERVICES ===== -->
+<section class="svc" id="services" data-embed="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">บริการของเรา</span>
+      <h2>ดูแลสุขภาพเบื้องต้นใกล้บ้านคุณ</h2>
+      <p>คลินิกเวชกรรมในพื้นที่บางขุนเทียน กทม.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></span>
+        <h3>ตรวจรักษาโรคทั่วไป</h3>
+        <p>ไข้ หวัด ไอ เจ็บคอ ปวดศีรษะ ท้องเสีย และอาการเจ็บป่วยทั่วไป ตรวจโดยแพทย์</p>
+      </div>
+      <div class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+        <h3>ตรวจสุขภาพประจำปี</h3>
+        <p>แพ็กเกจตรวจสุขภาพประจำปีตามช่วงวัย</p>
+      </div>
+      <div class="card free">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+        <h3>รักษาฟรีด้วยสิทธิบัตรทอง</h3>
+        <p>ผู้มีสิทธิบัตรทองที่ลงทะเบียนกับคลินิก รับบริการได้โดยไม่มีค่าใช้จ่าย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW TO ===== -->
+<section class="steps" id="how" data-embed="steps">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ขั้นตอนรับบริการ</span>
+      <h2>มาใช้สิทธิบัตรทอง ง่าย ๆ 4 ขั้นตอน</h2>
+    </div>
+    <ol>
+      <li><h3>ตรวจสอบสิทธิ</h3><p>ตรวจสอบสิทธิด้วยบัตรประชาชน</p></li>
+      <li><h3>เตรียมบัตรประชาชน</h3><p>นำบัตรประชาชนตัวจริงมาทุกครั้งที่รับบริการ</p></li>
+      <li><h3>ติดต่อเคาน์เตอร์</h3><p>ยื่นบัตรและแจ้งอาการกับเจ้าหน้าที่หน้าคลินิก</p></li>
+      <li><h3>พบแพทย์ รับยา</h3><p>ตรวจรักษาและรับยาตามสิทธิ ไม่มีค่าใช้จ่าย</p></li>
+    </ol>
+    <p class="note">หากไม่แน่ใจว่าสิทธิของท่านอยู่ที่คลินิกนี้หรือไม่ โทรสอบถามเราก่อนเดินทางได้ที่ <b>02 005 0062</b></p>
+  </div>
+</section>
+
+<!-- ===== ACTIVITIES (Facebook) ===== -->
+<section class="acts" id="activities">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">กิจกรรมของคลินิก</span>
+      <h2>ภาพและวิดีโอกิจกรรม</h2>
+      <p>อัปเดตล่าสุดจากเพจ Facebook เคหะคลินิกเวชกรรม</p>
+    </div>
+    <div class="grid">
+      <div class="vids" id="vids"></div>
+      <div>
+        <div class="fbbox" id="fbbox"></div>
+        <a class="btn btn-green more" href="https://www.facebook.com/khehaclinic" target="_blank" rel="noopener">ดูทั้งหมดบน Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+/* ===== วิดีโอจาก Facebook =====
+   วิธีเพิ่ม: เปิดวิดีโอในเพจ > กด ... หรือ แชร์ > คัดลอกลิงก์
+   แล้ววางลิงก์ในเครื่องหมาย " " คั่นแต่ละลิงก์ด้วยเครื่องหมายจุลภาค ,
+   ตัวอย่าง:
+   const FB_VIDEOS = [
+     "https://www.facebook.com/khehaclinic/videos/1234567890/",
+     "https://www.facebook.com/reel/9876543210",
+          "https://www.facebook.com/share/r/19eDMsueuX/",
+          "https://www.facebook.com/share/r/14yftNr4fnX/",
+          "https://www.facebook.com/share/r/19ceBiLe9k/",
+          "https://www.facebook.com/share/r/19kh3siHyr/",
+          "https://www.facebook.com/share/r/1DZYShEbd8/",
+          "https://www.facebook.com/share/r/1DiciRNEEm/.,
+          "https://www.facebook.com/share/r/1Fvq9ezsyy/",
+   ];
+   ถ้าไม่ใส่ลิงก์ จะแสดงเฉพาะโพสต์ล่าสุดของเพจ */
+const FB_VIDEOS = [
+];
+const FB_PAGE = "https://www.facebook.com/khehaclinic";
+
+(function(){
+  var v=document.getElementById('vids');
+  FB_VIDEOS.forEach(function(u){
+    var d=document.createElement('div');d.className='vid';
+    d.innerHTML='<iframe src="https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(u)+'&show_text=false&width=734" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen loading="lazy" title="วิดีโอกิจกรรม"></iframe>';
+    v.appendChild(d);
+  });
+  if(!FB_VIDEOS.length) document.getElementById('activities').classList.add('no-vids');
+  var box=document.getElementById('fbbox');
+  function draw(){
+    var w=Math.min(500,Math.max(180,Math.floor(box.parentNode.clientWidth-26)));
+    box.innerHTML='<iframe src="https://www.facebook.com/plugins/page.php?href='+encodeURIComponent(FB_PAGE)+'&tabs=timeline&width='+w+'&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" width="'+w+'" height="640" allow="encrypted-media; clipboard-write; web-share" loading="lazy" title="โพสต์ล่าสุดจาก Facebook"></iframe>';
+  }
+  draw();var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(draw,400);});
+})();
+</script>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact" data-embed="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">ติดต่อเรา</span>
+      <h2>สอบถาม หรือเดินทางมาที่คลินิก</h2>
+    </div>
+    <div class="grid">
+      <div class="clist">
+        <div class="citem"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <a href="tel:020050062" target="_blank" rel="noopener"><small>โทรศัพท์</small><b>02 005 0062</b></a></div>
+        <div class="citem"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+          <a href="tel:0652535253" target="_blank" rel="noopener"><small>มือถือ</small><b>06 5253 5253</b></a></div>
+        <div class="citem"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><small>เวลาทำการ</small><b>จันทร์–ศุกร์ 8.00–18.00 น.</b><br><b>เสาร์–อาทิตย์ 8.00–11.00 น.</b></div></div>
+        <div class="citem"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><small>ที่อยู่</small><b>14, 16 ชั้น 1, ชั้นลอย<br>ซอยพระรามที่ 2 ซอย 69 แยก 5<br>แขวงแสมดำ เขตบางขุนเทียน<br>กรุงเทพมหานคร 10150</b></div></div>
+        <div class="citem"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+          <a href="https://www.facebook.com/khehaclinic" target="_blank" rel="noopener"><small>Facebook</small><b>khehaclinic</b></a></div>
+      </div>
+      <div class="map">
+        <iframe src="https://maps.google.com/maps?q=13.644577,100.4229814&amp;hl=th&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="แผนที่เคหะคลินิกเวชกรรม"></iframe>
+        <a class="btn btn-gold open" href="https://maps.app.goo.gl/AkfRURM9Z9aRQMH9A" target="_blank" rel="noopener">นำทางด้วย Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer data-embed="footer">
+  <div class="wrap">
+    <span>© เคหะคลินิกเวชกรรม</span>
+  </div>
+</footer>
+
+</body>
+</html>
